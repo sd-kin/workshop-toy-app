@@ -15,7 +15,7 @@
   </div>
 <% end %>
 
-<%= form_for(@form, url: user_path(@user), path: user_path(@user), method: :put) do |f| %>
+<%= form_for(@form, url: moderator_path(@user), path: moderator_path(@user), method: :put) do |f| %>
   <div>
     <%= f.label :username %>
   </div>
@@ -36,6 +36,38 @@
   <div>
     <%= f.text_field :email %>
   </div>
+
+  <% if @user.moderator? %>
+    <div>
+      <%= f.label :workplace %>
+    </div>
+    <div>
+      <%= f.text_field :workplace %>
+    </div>
+
+    <div>
+      <%= f.label :profession %>
+    </div>
+    <div>
+      <%= f.text_field :profession %>
+    </div>
+  <% end %>
+
+  <% unless @user.moderator? %>
+    <div>
+      <%= f.label :banned %>
+    </div>
+    <div>
+      <%= f.check_box :banned %>
+    </div>
+
+    <div>
+      <%= f.label :deleted %>
+    </div>
+    <div>
+      <%= f.check_box :deleted %>
+    </div>
+  <% end %>
 
   <div>
     <%= f.submit 'update' %>

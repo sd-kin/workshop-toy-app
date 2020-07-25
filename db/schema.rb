@@ -10,17 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_165322) do
+ActiveRecord::Schema.define(version: 2020_07_25_155843) do
 
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "address"
-    t.string "role"
-    t.float "position_lat"
-    t.float "position_lon"
+  create_table "profiles", force: :cascade do |t|
+    t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'reference' for column 'profile'
 
 end

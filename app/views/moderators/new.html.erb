@@ -1,4 +1,4 @@
-<h1>Edit</h1>
+<h1>Sign Up</h1>
 
 <% if @form.errors.any? %>
   <div>
@@ -15,7 +15,7 @@
   </div>
 <% end %>
 
-<%= form_for(@form, url: user_path(@user), path: user_path(@user), method: :put) do |f| %>
+<%= form_for(@form, url: moderators_path, path: moderators_path) do |f| %>
   <div>
     <%= f.label :username %>
   </div>
@@ -38,6 +38,32 @@
   </div>
 
   <div>
-    <%= f.submit 'update' %>
+    <%= f.label :email_confirmation %>
+  </div>
+  <div>
+    <%= f.text_field :email_confirmation %>
+  </div>
+
+  <div>
+    <%= f.label :workplace %>
+  </div>
+  <div>
+    <%= f.text_field :workplace %>
+  </div>
+
+  <div>
+    <%= f.label :profession %>
+  </div>
+  <div>
+    <%= f.text_field :profession %>
+  </div>
+
+  <div>
+    <%= f.check_box :check %>
+    I read and accept something
+  </div>
+
+  <div>
+    <%= f.submit 'Sign Up!' %>
   </div>
 <% end %>

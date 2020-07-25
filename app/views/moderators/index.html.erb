@@ -1,0 +1,12 @@
+<h1>Users(moderation mode)</h1>
+
+<%= link_to 'create new moderator', new_moderator_path %>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.username, moderator_path(user) %> |
+      <%= link_to :edit, edit_moderator_path(user) %>
+    </li>
+  <% end %>
+</ul>
